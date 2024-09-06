@@ -6,7 +6,7 @@
 
 **Como funciona?**
 
-Insira o nome do poeta brasileiro desejado e pronto! A mágica acontece: a aplicação vasculha a biblioteca e te apresenta os resultados de forma clara e organizada. 
+Insira o nome do poeta brasileiro desejado e pronto! A aplicação vasculha a biblioteca e te apresenta os resultados de forma clara e organizada. 
 
 **Tecnologias usadas:**
 
