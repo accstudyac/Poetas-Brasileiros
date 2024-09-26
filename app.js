@@ -4,17 +4,18 @@ function normalizeString(str) {
 
 function pesquisar() {
     let section = document.getElementById("resultados-pesquisa");
-    let campoPesquisa = document.getElementById("campo-pesquisa").value.trim();
+    let campoPesquisa = document.getElementById("campo-pesquisa");
 
     // Inicialmente, esconder a seção de resultados
     section.classList.remove('mostrar');
-    
-    if (!campoPesquisa) {
+
+    let pesquisaNormalizada = normalizeString(campoPesquisa.value.trim());
+
+    if (!pesquisaNormalizada) {
         section.innerHTML = "<p>Nada foi encontrado. Você precisa digitar o nome do poeta ou título da obra.</p>";
         return;
     }
 
-    let pesquisaNormalizada = normalizeString(campoPesquisa);
     let resultados = "";
 
     for (let dado of dados) {
@@ -44,4 +45,14 @@ function pesquisar() {
     section.innerHTML = resultados;
     // Mostrar a seção de resultados após a pesquisa
     section.classList.add('mostrar');
+
+    // Limpar o campo de pesquisa
+    campoPesquisa.value = ''; // Limpa o campo de pesquisa
 }
+
+// Adiciona o evento de escuta para o campo de pesquisa
+document.getElementById("campo-pesquisa").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        pesquisar();
+    }
+});
